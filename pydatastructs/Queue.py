@@ -1,4 +1,3 @@
-from __future__ import print_function
 class Queue:
 	'''
 	Creation of Queue Data Type in python with list prebuilt data type
@@ -25,28 +24,20 @@ class Queue:
 	6. Check whether queue is full or not.
 	 '''
 	
-    def __init__(self):
-        self.elements = []
-
-	def len(self):
+    def __new__(cls):
+	obj = object.__new__(cls)
+        obj.elements = []
+	
+    def __len__(self):
         return len(self.elements)
     
-	def isEmpty(self):
+    def isEmpty(self):
         return self.elements == []
 
-    def isFull(self):
-    	if len(self.elements)<self.max_size 
-    		return 0 
-    	else return 1
+    def append(self, new_elem):
+    	self.elements.append(new_elem)
 
-    def append(self, elem):
-    	if (isFull(self)!=0)
-    		self.elements.insert(0,elem)
-    	else raise Error("Unable to acess memory segment")
-
-	def popleft(self):
-        if isEmpty(self)
-        	 return "Queue empty"
-        else self.elements.pop() 
-    
-
+    def popleft(self):
+        if (self.elements==[]):
+        	 return "Queue is empty!"
+        else self.elements.pop(0)
